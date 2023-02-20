@@ -29,5 +29,9 @@
     </swiper-slide>
   </swiper-container>
   <div #pagination></div>
-  <div [style.height.px]="2000"></div>
+  <img
+    *ngFor="let color of ['F00', '0F0', '00F']"
+    src="https://via.placeholder.com/300x1000/{{ color }}/000"
+    [style.display]="'block'"
+  />
 </ng-container>
