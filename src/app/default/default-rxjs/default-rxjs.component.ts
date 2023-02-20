@@ -1,8 +1,42 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import Swiper, { SwiperOptions } from 'swiper';
 
 @Component({
   selector: 'app-default-rxjs',
   templateUrl: './default-rxjs.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DefaultRxjsComponent {}
+export class DefaultRxjsComponent {
+  numbers$ = new BehaviorSubject<number[]>([1, 2, 3, 4, 5]);
+
+  options: SwiperOptions = {
+    slidesPerView: 1,
+    initialSlide: Math.floor(Math.random() * this.numbers$.value.length),
+    pagination: {
+      type: 'custom',
+      renderCustom: (swiper: Swiper, _current: number, total: number) =>
+        `<span>${swiper.realIndex + 1}</span> / <span>${total}</span>`,
+    },
+  };
+
+  addEvents(swiper: Swiper): void {
+    swiper.on('destroy', () => console.log('swiper destroyed'));
+    swiper.on('realIndexChange', (swiper) =>
+      console.log('swiper index: ', swiper.realIndex)
+    );
+  }
+
+  changePanelContentsStream(): void {
+    const nums = this.numbers$.value;
+
+    this.numbers$.next(nums.map((v) => v * 2));
+  }
+
+  changePanelCountStream(event: Event): void {
+    const target = event.target as HTMLSelectElement;
+    const count = Number(target.value);
+
+    this.numbers$.next(Array.from({ length: count }, (_, i) => i + 1));
+  }
+}
