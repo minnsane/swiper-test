@@ -11,6 +11,7 @@ import { LoopRxjsRemoveComponent } from './loop/loop-rxjs-remove/loop-rxjs-remov
 import { LoopRxjsStickyComponent } from './loop/loop-rxjs-sticky/loop-rxjs-sticky.component';
 import { LoopRxjsTrackComponent } from './loop/loop-rxjs-track/loop-rxjs-track.component';
 import { LoopRxjsComponent } from './loop/loop-rxjs/loop-rxjs.component';
+import { ParentWrapperComponent } from './parent-wrapper/parent-wrapper.component';
 
 const routes: Routes = [
   { path: 'default/cd-always', component: DefaultCdAlwaysComponent },
@@ -20,7 +21,7 @@ const routes: Routes = [
   { path: 'loop/cd-always', component: LoopCdAlwaysComponent },
   { path: 'loop/on-push', component: LoopOnPushComponent },
   { path: 'loop/rxjs', component: LoopRxjsComponent },
-  { path: 'loop/rxjs-child', component: LoopRxjsChildComponent },
+  { path: 'loop/rxjs-child', component: ParentWrapperComponent },
   { path: 'loop/rxjs-remove', component: LoopRxjsRemoveComponent },
   { path: 'loop/rxjs-sticky', component: LoopRxjsStickyComponent },
   { path: 'loop/rxjs-track', component: LoopRxjsTrackComponent },

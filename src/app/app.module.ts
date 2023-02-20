@@ -16,9 +16,10 @@ import { LoopRxjsRemoveComponent } from './loop/loop-rxjs-remove/loop-rxjs-remov
 import { LoopRxjsChildComponent } from './loop/loop-rxjs-child/loop-rxjs-child.component';
 import { LoopRxjsStickyComponent } from './loop/loop-rxjs-sticky/loop-rxjs-sticky.component';
 import { LoopOnPushComponent } from './loop/loop-on-push/loop-on-push.component';
+import { ParentWrapperComponent } from './parent-wrapper/parent-wrapper.component';
 
 @NgModule({
-  declarations: [AppComponent, SwiperContainerDirective, DefaultCdAlwaysComponent, DefaultOnPushComponent, DefaultRxjsComponent, DefaultRxjsStickyComponent, LoopCdAlwaysComponent, LoopRxjsComponent, LoopRxjsTrackComponent, LoopRxjsRemoveComponent, LoopRxjsChildComponent, LoopRxjsStickyComponent, LoopOnPushComponent],
+  declarations: [AppComponent, SwiperContainerDirective, DefaultCdAlwaysComponent, DefaultOnPushComponent, DefaultRxjsComponent, DefaultRxjsStickyComponent, LoopCdAlwaysComponent, LoopRxjsComponent, LoopRxjsTrackComponent, LoopRxjsRemoveComponent, LoopRxjsChildComponent, LoopRxjsStickyComponent, LoopOnPushComponent, ParentWrapperComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

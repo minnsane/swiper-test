@@ -1,0 +1,12 @@
+<swiper-container
+  init="false"
+  [options]="options"
+  [paginationEl]="pagination"
+  (addEvents)="addEvents($event)"
+  [ngStyle]="{ width: '200px', marginLeft: 0 }"
+>
+  <swiper-slide *ngFor="let num of numbers">
+    <img src="https://via.placeholder.com/150?text={{ num }}" />
+  </swiper-slide>
+</swiper-container>
+<div #pagination></div>
