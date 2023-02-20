@@ -1,0 +1,34 @@
+<ng-container *ngIf="numbers$ | async as numbers">
+  <h1>회전 스와이프 + OnPush + rxjs + trackBy</h1>
+  <ul>
+    <li>초기 인덱스 설정</li>
+    <li>커스텀 페이지네이션</li>
+    <li>ChangeDetectionStrategy.OnPush</li>
+    <li>BehaviorSubject로 데이터 수정/사용</li>
+    <li>trackBy로 데이터 변경 시 슬라이드 새로 track</li>
+  </ul>
+  <button (click)="changePanelContentsStream()">패널 내용 변경</button
+  >&nbsp;&nbsp;&nbsp; <label for="panel_count">패널 수 변경</label>&nbsp;
+  <select
+    name="panelCount"
+    id="panel_count"
+    (change)="changePanelCountStream($event)"
+  >
+    <option *ngFor="let num of [1, 2, 3, 4, 5]" [value]="num">
+      {{ num }}
+    </option>
+  </select>
+  <br /><br />
+  <swiper-container
+    init="false"
+    [options]="options"
+    [paginationEl]="pagination"
+    (addEvents)="addEvents($event)"
+    [ngStyle]="{ width: '200px', marginLeft: 0 }"
+  >
+    <swiper-slide *ngFor="let num of numbers; trackBy: trackByFn">
+      <img src="https://via.placeholder.com/150?text={{ num }}" />
+    </swiper-slide>
+  </swiper-container>
+  <div #pagination></div>
+</ng-container>
