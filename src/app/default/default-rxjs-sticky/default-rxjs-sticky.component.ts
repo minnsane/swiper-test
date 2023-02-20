@@ -9,7 +9,6 @@ import Swiper, { SwiperOptions } from 'swiper';
 })
 export class DefaultRxjsStickyComponent {
   numbers$ = new BehaviorSubject<number[]>([1, 2, 3, 4, 5]);
-  isSticky = false;
 
   options: SwiperOptions = {
     slidesPerView: 1,
