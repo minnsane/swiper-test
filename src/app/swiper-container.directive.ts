@@ -32,11 +32,11 @@ export class SwiperContainerDirective implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.swiper.destroy();
+    this.swiper?.destroy();
   }
 
   destroy(): void {
-    this.swiper.destroy();
+    this.swiper?.destroy();
   }
 
   initialize(): void {
