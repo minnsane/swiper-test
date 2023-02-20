@@ -4,9 +4,10 @@ import { register } from 'swiper/element/bundle';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SwiperContainerDirective } from './swiper-container.directive';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SwiperContainerDirective],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
