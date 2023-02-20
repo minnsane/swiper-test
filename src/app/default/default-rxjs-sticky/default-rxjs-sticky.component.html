@@ -1,0 +1,33 @@
+<ng-container *ngIf="numbers$ | async as numbers">
+  <h1>Sticky 스와이프</h1>
+  <ul>
+    <li>bullet 페이지네이션</li>
+    <li>화살표 네비게이션</li>
+    <li>sticky할 때 패닝</li>
+  </ul>
+  <button (click)="changePanelContentsStream()">패널 내용 변경</button
+  >&nbsp;&nbsp;&nbsp; <label for="panel_count">패널 수 변경</label>&nbsp;
+  <select
+    name="panelCount"
+    id="panel_count"
+    (change)="changePanelCountStream($event)"
+  >
+    <option *ngFor="let num of [1, 2, 3, 4, 5]" [value]="num">
+      {{ num }}
+    </option>
+  </select>
+  <br /><br />
+  <swiper-container
+    init="false"
+    [options]="options"
+    [paginationEl]="pagination"
+    (addEvents)="addEvents($event)"
+    [ngStyle]="{ width: '200px', marginLeft: 0, position: 'sticky', top: 0 }"
+  >
+    <swiper-slide *ngFor="let num of numbers">
+      <img src="https://via.placeholder.com/150?text={{ num }}" />
+    </swiper-slide>
+  </swiper-container>
+  <div #pagination></div>
+  <div [style.height.px]="2000"></div>
+</ng-container>
